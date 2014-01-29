@@ -1,6 +1,6 @@
-function closeIt(divHolder) {
+function closeIt() {
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+//<script src="http://d3js.org/d3.v3.min.js"></script>
 
       function loadjscssfile(filename, filetype) {
                    if (filetype == "js") { //if filename is a external JavaScript file
@@ -20,7 +20,7 @@ function closeIt(divHolder) {
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
                
-         loadjscssfile("./bubble1.css") 
+         loadjscssfile("./bubble1.css") ;
    
    var diameter = 960,
        format = d3.format(",d"),
@@ -31,12 +31,12 @@ function closeIt(divHolder) {
        .size([diameter, diameter])
        .padding(1.5);
    
-   var svg = d3.select(divHolder).append("svg")
+   var svg = d3.select("#thetext").append("svg")
        .attr("width", diameter)
        .attr("height", diameter)
        .attr("class", "bubble");
    
-   d3.json("./flare.json", function(error, root) {
+   d3.json("/js/D3/bubble1/flare.json", function(error, root) {
      var node = svg.selectAll(".node")
          .data(bubble.nodes(classes(root))
          .filter(function(d) { return !d.children; }))
