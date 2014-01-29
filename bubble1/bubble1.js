@@ -1,4 +1,4 @@
-function closeIt() {
+function closeIt(divIn) {
 
 //<script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -31,7 +31,7 @@ function closeIt() {
        .size([diameter, diameter])
        .padding(1.5);
    
-   var svg = d3.select("#thetext").append("svg")
+   var svg = d3.select(divIn).append("svg")
        .attr("width", diameter)
        .attr("height", diameter)
        .attr("class", "bubble");
