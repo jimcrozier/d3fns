@@ -1,4 +1,4 @@
-function() {
+function closeIt() {
 
 
    function loadjscssfile(filename, filetype) {
@@ -318,6 +318,7 @@ function boxQuartiles(d) {
   ];
 }
 
+
 var margin = {top: 10, right: 50, bottom: 20, left: 50},
     width = 120 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -330,11 +331,23 @@ var chart = d3.box()
     .width(width)
     .height(height);
 
+d3.csv("/js/D3/boxplot/morley.csv", function(error, csv) {
+  var data = [];
 
+  csv.forEach(function(x) {
+    var e = Math.floor(x.Expt - 1),
+        r = Math.floor(x.Run - 1),
+        s = Math.floor(x.Speed),
+        d = data[e];
+    if (!d) d = data[e] = [s];
+    else d.push(s);
+    if (s > max) max = s;
+    if (s < min) min = s;
+  });
 
   chart.domain([min, max]);
 
-  var svg = d3.select("body").selectAll("svg")
+  var svg = d3.select("#thetext").selectAll("svg")
       .data(data)
     .enter().append("svg")
       .attr("class", "box")
@@ -375,4 +388,5 @@ function iqr(k) {
   };
 }
 
-})();
+
+}
