@@ -3,6 +3,27 @@ function closeIt(divIn) {
 // Chart design based on the recommendations of Stephen Few. Implementation
 // based on the work of Clint Ivy, Jamie Love, and Jason Davies.
 // http://projects.instantcognition.com/protovis/bulletchart/
+
+      function loadjscssfile(filename, filetype) {
+                   if (filetype == "js") { //if filename is a external JavaScript file
+                      // alert('called');
+                       var fileref = document.createElement('script')
+                       fileref.setAttribute("type", "text/javascript")
+                       fileref.setAttribute("src", filename)
+                       alert('called');
+                   }
+                   else if (filetype == "css") { //if filename is an external CSS file
+                       var fileref = document.createElement("link")
+                       fileref.setAttribute("rel", "stylesheet")
+                       fileref.setAttribute("type", "text/css")
+                       fileref.setAttribute("href", filename)
+                   }
+                   if (typeof fileref != "undefined")
+                       document.getElementsByTagName("head")[0].appendChild(fileref)
+               }
+               
+         loadjscssfile("./bullet.css") ;
+         
 d3.bullet = function() {
   var orient = "left", // TODO top & bottom
       reverse = false,
