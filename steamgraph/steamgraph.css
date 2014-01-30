@@ -1,5 +1,4 @@
 
-
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: auto;
@@ -7,8 +6,3 @@ body {
   width: 960px;
 }
 
-button {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
