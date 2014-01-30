@@ -20,7 +20,7 @@
                            document.getElementsByTagName("head")[0].appendChild(fileref)
                    }
                    
-             loadjscssfile("/js/D3/d3fns/cartogram1/corddiagram.css","css") ;
+             loadjscssfile("/js/D3/d3fns/corddiagram/corddiagram.css","css") ;
              
 // From http://mkweb.bcgsc.ca/circos/guide/tables/
 var matrix = [
