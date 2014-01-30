@@ -1,12 +1,15 @@
 
     function closeIt(divIn) {
+	    
+	
+	    
          function loadjscssfile(filename, filetype) {
                        if (filetype == "js") { //if filename is a external JavaScript file
                           // alert('called');
                            var fileref = document.createElement('script')
                            fileref.setAttribute("type", "text/javascript")
                            fileref.setAttribute("src", filename)
-                           alert('called');
+                           //alert('called');
                        }
                        else if (filetype == "css") { //if filename is an external CSS file
                            var fileref = document.createElement("link")
@@ -19,7 +22,7 @@
                    }
                    
              loadjscssfile("/js/D3/d3fns/cartogram1/cartogram1.css","css") ;
-
+ loadjscssfile("http://d3js.org/topojson.v1.min.js","js") ;
 
 
 // Ratio of Obese (BMI >= 30) in U.S. Adults, CDC 2008
@@ -59,5 +62,6 @@ d3.json("/js/D3/d3fns/cartogram1/us.json", function(error, us) {
       })
       .style("stroke-width", function(d) {
         return 1 / Math.sqrt(valueById[d.id] * 5 || 1);
+      });
       });
 }
