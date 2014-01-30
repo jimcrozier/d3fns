@@ -1,4 +1,3 @@
-
 function closeIt(divIn) {
 
 // Chart design based on the recommendations of Stephen Few. Implementation
@@ -50,7 +49,7 @@ var area = d3.svg.area()
     .y0(function(d) { return y(d.y0); })
     .y1(function(d) { return y(d.y0 + d.y); });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select(divIn).append("svg")
     .attr("width", width)
     .attr("height", height);
 
