@@ -20,7 +20,7 @@ function closeIt(divIn) {
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
                
-         loadjscssfile("./bubble1.css", "css") ;
+         loadjscssfile("/js/D3/d3fns/bubble1/bubble1.css", "css") ;
    
    var diameter = 960,
        format = d3.format(",d"),
