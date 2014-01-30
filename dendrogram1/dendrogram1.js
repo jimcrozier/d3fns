@@ -1,4 +1,3 @@
-
 function closeIt(divIn) {
   
 
