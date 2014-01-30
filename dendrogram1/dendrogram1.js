@@ -20,7 +20,7 @@ function closeIt(divIn) {
                      document.getElementsByTagName("head")[0].appendChild(fileref)
              }
              
-       loadjscssfile("/js/D3/d3fns/dengrogram1/dengrogram1.css","css") ;
+       loadjscssfile("/js/D3/d3fns/dendrogram1/dendrogram1.css","css") ;
 
 
 var width = 960,
@@ -38,7 +38,7 @@ var svg = d3.select(divIn).append("svg")
   .append("g")
     .attr("transform", "translate(40,0)");
 
-d3.json("/js/D3/d3fns/dengrogram1/flare.json", function(error, root) {
+d3.json("/js/D3/d3fns/dendrogram1/flare.json", function(error, root) {
   var nodes = cluster.nodes(root),
       links = cluster.links(nodes);
 
