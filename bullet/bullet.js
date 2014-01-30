@@ -22,7 +22,7 @@ function closeIt(divIn) {
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
                
-         loadjscssfile("/js/D3/bullet/bullet.css","css") ;
+         loadjscssfile("/js/D3/d3fns/bullet/bullet.css","css") ;
          
  d3.bullet = function() {
   var orient = "left", // TODO top & bottom
@@ -267,8 +267,10 @@ var margin = {top: 5, right: 40, bottom: 20, left: 120},
 var chart = d3.bullet()
     .width(width)
     .height(height);
+    
+     $(divIn).append("<button>Update</button>");
 
-d3.json("/js/D3/bullet/bullets.json", function(error, data) {
+d3.json("/js/D3/d3fns/bullet/bullets.json", function(error, data) {
   var svg = d3.select(divIn).selectAll("svg")
       .data(data)
     .enter().append("svg")

@@ -17,7 +17,7 @@
                            document.getElementsByTagName("head")[0].appendChild(fileref)
                    }
                    
-             loadjscssfile("/js/D3/calendar1/calendar1.css","css") ;
+             loadjscssfile("/js/D3/d3fns/calendar1/calendar1.css","css") ;
     
     var width = 960,
         height = 136,
@@ -33,7 +33,7 @@
         .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
     
     var svg = d3.select(divIn).selectAll("svg")
-        .data(d3.range(1990, 2011))
+        .data(d3.range(2008, 2013))
       .enter().append("svg")
         .attr("width", width)
         .attr("height", height)
@@ -65,7 +65,7 @@
         .attr("class", "month")
         .attr("d", monthPath);
     
-    d3.csv("dji.csv", function(error, csv) {
+    d3.csv("/js/D3/d3fns/calendar1/sp.csv", function(error, csv) {
       var data = d3.nest()
         .key(function(d) { return d.Date; })
         .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
