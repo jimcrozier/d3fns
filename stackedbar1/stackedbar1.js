@@ -1,5 +1,4 @@
 
-
 function closeIt(divIn) {
   
 
@@ -24,7 +23,10 @@ function closeIt(divIn) {
              
        loadjscssfile("/js/D3/d3fns/stackedbar1/stackedbar1.css","css") ;
 
-
+$(divIn).append("<form>"+
+  "<label><input type="radio" name="mode" value="grouped"> Grouped</label>"+
+  "<label><input type="radio" name="mode" value="stacked" checked> Stacked</label>"+
+"</form>")
 var n = 4, // number of layers
     m = 58, // number of samples per layer
     stack = d3.layout.stack(),
