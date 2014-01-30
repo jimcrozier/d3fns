@@ -24,7 +24,7 @@ function closeIt(divIn) {
                
          loadjscssfile("/js/D3/bullet/bullet.css","css") ;
          
-d3.bullet = function() {
+ d3.bullet = function() {
   var orient = "left", // TODO top & bottom
       reverse = false,
       duration = 0,
