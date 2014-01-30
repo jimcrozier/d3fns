@@ -24,6 +24,8 @@ function closeIt(divIn) {
                
          loadjscssfile("/js/D3/d3fns/steamgraph/steamgraph.css","css") ;
          
+$(divIn).append('<button onclick="transition()">Update</button>');
+         
 var n = 20, // number of layers
     m = 200, // number of samples per layer
     stack = d3.layout.stack().offset("wiggle"),
