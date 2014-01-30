@@ -1,4 +1,3 @@
-
     function closeIt(divIn) {
          function loadjscssfile(filename, filetype) {
                        if (filetype == "js") { //if filename is a external JavaScript file
@@ -19,7 +18,6 @@
                    }
                    
              loadjscssfile("/js/D3/calendar1/calendar1.css","css") ;
-    
     
     var width = 960,
         height = 136,
