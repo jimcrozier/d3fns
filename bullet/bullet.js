@@ -22,7 +22,7 @@ function closeIt(divIn) {
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
                
-         loadjscssfile("./bullet.css") ;
+         loadjscssfile("/js/D3/bullet/bullet.css","css") ;
          
 d3.bullet = function() {
   var orient = "left", // TODO top & bottom
