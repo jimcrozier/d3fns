@@ -1,4 +1,5 @@
-function closeIt(divIn) {
+function closeIt(divIn) 
+{
 
 //<script src="http://d3js.org/d3.v3.min.js"></script>
 
@@ -22,75 +23,49 @@ function closeIt(divIn) {
                
          loadjscssfile("/js/D3/d3fns/NodeLinkTree/NodeLinkTree.css", "css") ;
          
-                 
-                 var margin = {top: 10, right: 50, bottom: 20, left: 50},
-            width = 120 - margin.left - margin.right,
-            height = 500 - margin.top - margin.bottom;
-        
-        var min = Infinity,
-            max = -Infinity;
-        
-        var chart = d3.box()
-            .whiskers(iqr(1.5))
-            .width(width)
-            .height(height);
-        
-        d3.csv("morley.csv", function(error, csv) {
-          var data = [];
-        
-          csv.forEach(function(x) {
-            var e = Math.floor(x.Expt - 1),
-                r = Math.floor(x.Run - 1),
-                s = Math.floor(x.Speed),
-                d = data[e];
-            if (!d) d = data[e] = [s];
-            else d.push(s);
-            if (s > max) max = s;
-            if (s < min) min = s;
-          });
-        
-          chart.domain([min, max]);
-        
-          var svg = d3.select("body").selectAll("svg")
-              .data(data)
-            .enter().append("svg")
-              .attr("class", "box")
-              .attr("width", width + margin.left + margin.right)
-              .attr("height", height + margin.bottom + margin.top)
+            
+            var diameter = 960;
+            
+            var tree = d3.layout.tree()
+            .size([360, diameter / 2 - 120])
+            .separation(function(a, b) { return (a.parent == b.parent ? 1 : 2) / a.depth; });
+            
+            var diagonal = d3.svg.diagonal.radial()
+            .projection(function(d) { return [d.y, d.x / 180 * Math.PI]; });
+            
+            var svg = d3.select("body").append("svg")
+            .attr("width", diameter)
+            .attr("height", diameter - 150)
             .append("g")
-              .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-              .call(chart);
-        
-          setInterval(function() {
-            svg.datum(randomize).call(chart.duration(1000));
-          }, 2000);
-        });
-        
-        function randomize(d) {
-          if (!d.randomizer) d.randomizer = randomizer(d);
-          return d.map(d.randomizer);
-        }
-        
-        function randomizer(d) {
-          var k = d3.max(d) * .02;
-          return function(d) {
-            return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
-          };
-        }
-        
-        // Returns a function to compute the interquartile range.
-        function iqr(k) {
-          return function(d, i) {
-            var q1 = d.quartiles[0],
-                q3 = d.quartiles[2],
-                iqr = (q3 - q1) * k,
-                i = -1,
-                j = d.length;
-            while (d[++i] < q1 - iqr);
-            while (d[--j] > q3 + iqr);
-            return [i, j];
-          };
-        }
+            .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
+            
+            d3.json("/js/D3/d3fns/bullet/flare.json", function(error, root) {
+            var nodes = tree.nodes(root),
+            links = tree.links(nodes);
+            
+            var link = svg.selectAll(".link")
+            .data(links)
+            .enter().append("path")
+            .attr("class", "link")
+            .attr("d", diagonal);
+            
+            var node = svg.selectAll(".node")
+            .data(nodes)
+            .enter().append("g")
+            .attr("class", "node")
+            .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + d.y + ")"; })
+            
+            node.append("circle")
+            .attr("r", 4.5);
+            
+            node.append("text")
+            .attr("dy", ".31em")
+            .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+            .attr("transform", function(d) { return d.x < 180 ? "translate(8)" : "rotate(180)translate(-8)"; })
+            .text(function(d) { return d.name; });
+            });
+            
+            d3.select(self.frameElement).style("height", diameter - 150 + "px");
 }
          
          
