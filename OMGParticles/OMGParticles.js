@@ -29,7 +29,7 @@ function closeIt(divIn) {
 
 var i = 0;
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("divIn").append("svg")
     .attr("width", width)
     .attr("height", height);
 
