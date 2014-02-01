@@ -38,7 +38,7 @@ function closeIt(divIn) {
             speed = 4,
             start = Date.now();
             
-            var svg = d3.select("body").append("svg")
+            var svg = d3.select("divIn").append("svg")
             .attr("width", width)
             .attr("height", height)
             .append("g")
