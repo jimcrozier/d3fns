@@ -1,0 +1,13 @@
+body {
+  background: #888;
+}
+
+rect {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2.5px;
+}
+
+.square:nth-child(2n + 1) rect {
+  stroke: #fff;
+}
