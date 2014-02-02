@@ -1,0 +1,8 @@
+body {
+  background: #012;
+}
+
+path {
+  stroke: #fff;
+  stroke-opacity: .5;
+}
