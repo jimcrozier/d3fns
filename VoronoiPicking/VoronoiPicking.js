@@ -79,4 +79,7 @@ function closeIt(divIn) {
       .attr("r", 2)
       .attr('stroke', 'none');
       
+      $(divIn).append('<div id="chart">'+
+  '</div>');
+      
 }      
