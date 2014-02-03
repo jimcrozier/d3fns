@@ -36,7 +36,7 @@ var quantize = d3.scale.quantize()
 
 var path = d3.geo.path();
 
-var svg = d3.select("divIn").append("svg")
+var svg = d3.select(divIn).append("svg")
     .attr("width", width)
     .attr("height", height);
 
