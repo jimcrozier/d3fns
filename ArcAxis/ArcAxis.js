@@ -8,7 +8,7 @@ function closeIt(divIn) {
                        var fileref = document.createElement('script')
                        fileref.setAttribute("type", "text/javascript")
                        fileref.setAttribute("src", filename)
-                       alert('called');
+                      // alert('called');
                    }
                    else if (filetype == "css") { //if filename is an external CSS file
                        var fileref = document.createElement("link")
@@ -20,6 +20,10 @@ function closeIt(divIn) {
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
                
+ 
+          loadjscssfile("http://iop.io/js/vendor/d3.v3.min.js", "js") ;
+          loadjscssfile("http://iop.io/js/vendor/polymer/polymer.min.js", "js") ;
+          loadjscssfile("http://iop.io/js/iopctrl.js", "js") ;
          loadjscssfile("/js/D3/d3fns/ArcAxis/ArcAxis.css", "css") ;
          
          var svg = d3.select("#speedometer")
