@@ -5,7 +5,7 @@ function closeIt(divIn) {
 //<script src="http://d3js.org/queue.v1.min.js"></script>
 //<script src="http://d3js.org/topojson.v1.min.js"></script>
 
-      function loadjscssfile(filename, filetype) {
+      $(function loadjscssfile(filename, filetype) {
                    if (filetype == "js") { //if filename is a external JavaScript file
                       // alert('called');
                        var fileref = document.createElement('script')
@@ -26,6 +26,7 @@ function closeIt(divIn) {
   loadjscssfile("http://d3js.org/topojson.v1.min.js", "js") ;
 
          loadjscssfile("/js/D3/d3fns/Choropleth/Choropleth.css", "css") ;
+         );
          
          var width = 960,
     height = 500;
