@@ -43,8 +43,8 @@ var svg = d3.select(divIn).append("svg")
     .attr("height", height);
 
 queue()
-    .defer(d3.json, "/mbostock/raw/4090846/us.json")
-    .defer(d3.tsv, "/js/D3/d3fns/bullet/unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
+    .defer(d3.json, "/js/D3/d3fns/Choropleth/us.json")
+    .defer(d3.tsv, "/js/D3/d3fns/Choropleth/unemployment.tsv", function(d) { rateById.set(d.id, +d.rate); })
     .await(ready);
 
 function ready(error, us) {
