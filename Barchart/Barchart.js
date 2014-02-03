@@ -21,6 +21,7 @@ function closeIt(divIn) {
                }
                
          loadjscssfile("/js/D3/d3fns/Barchart/Barchart.css", "css") ;
+         loadjscssfile("http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js","js")
          var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
