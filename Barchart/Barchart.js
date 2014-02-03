@@ -49,7 +49,7 @@ var tip = d3.tip()
     return "<strong>Frequency:</strong> <span style='color:red'>" + d.frequency + "</span>";
   })
 
-var svg = d3.select("divln").append("svg")
+var svg = d3.select(divIn).append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
