@@ -21,6 +21,8 @@ function closeIt(divIn) {
                }
                
          loadjscssfile("/js/D3/d3fns/Barchart/Barchart.css", "css") ;
+         
+         loadjscssfile("http://d3js.org/d3.v3.min.js","js");
          loadjscssfile("/js/D3/d3fns/Barchart/tip.js","js");
          var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
