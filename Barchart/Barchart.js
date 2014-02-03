@@ -8,7 +8,7 @@ function closeIt(divIn) {
                        var fileref = document.createElement('script')
                        fileref.setAttribute("type", "text/javascript")
                        fileref.setAttribute("src", filename)
-                       alert('called');
+                       //alert('called');
                    }
                    else if (filetype == "css") { //if filename is an external CSS file
                        var fileref = document.createElement("link")
