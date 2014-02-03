@@ -22,7 +22,9 @@ function closeIt(divIn) {
                    if (typeof fileref != "undefined")
                        document.getElementsByTagName("head")[0].appendChild(fileref)
                }
-               
+ loadjscssfile("http://d3js.org/queue.v1.min.js", "js") ;
+  loadjscssfile("http://d3js.org/topojson.v1.min.js", "js") ;
+
          loadjscssfile("/js/D3/d3fns/Choropleth/Choropleth.css", "css") ;
          
          var width = 960,
