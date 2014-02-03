@@ -26,9 +26,11 @@ function closeIt(divIn) {
           loadjscssfile("http://iop.io/js/iopctrl.js", "js") ;
          loadjscssfile("/js/D3/d3fns/ArcAxis/ArcAxis.css", "css") ;
          
- 
+                $(divIn).append('<div>'+
+        '<span id="speedometer"></span>'+
+    '</div>');
          
-         var svg = d3.select(divIn)
+         var svg = d3.select("#speedometer")
                 .append("svg:svg")
                 .attr("width", 400)
                 .attr("height", 400);
